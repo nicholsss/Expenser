@@ -9,11 +9,11 @@ const App = (props) => {
 
   
   if(props.user ===null){
-    return<RegisterForm/>
+    return <LoginForm />
   }
   return (
     <div>    
-      <LoginForm />
+      <RegisterForm />
     </div>
   );
 };
