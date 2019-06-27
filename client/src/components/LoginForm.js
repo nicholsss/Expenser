@@ -47,13 +47,16 @@ const LoginForm =(props) => {
   const handleLogin = async event => {
     event.preventDefault()
     console.log('lol')
+    console.log('username',username.value)
+    console.log('password', password.value)
     props.loginUser({
         username:username.value,
         password:password.value
 
     })
     .catch(()=>{
-        console.log('Error')
+        console.log('Error', username.value)
+      
     })
     usernameReset()
     passwordReset()
@@ -68,7 +71,7 @@ const LoginForm =(props) => {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} noValidate>
+        <form onSubmit={handleLogin} className={classes.form} noValidate>
           <TextField
             variant="outlined"
             margin="normal"
@@ -97,7 +100,7 @@ const LoginForm =(props) => {
             variant="contained"
             color="primary"
             className={classes.submit}
-            onClick={handleLogin}
+            //onClick={handleLogin}
           >
             Sign In
           </Button>
@@ -117,6 +120,16 @@ const LoginForm =(props) => {
   );
 }
 
-export default connect(null, {
-    loginUser
-})(LoginForm)
+const mapStateToProps = state => {
+  return { user: state.user};
+};
+
+const mapDispatchToProps = {
+
+  loginUser,
+ 
+};
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(LoginForm);

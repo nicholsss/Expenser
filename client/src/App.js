@@ -9,6 +9,7 @@ const App = (props) => {
 
   
   if(props.user ===null){
+    {console.log('props',props.user)}
     return <LoginForm />
   }
   return (
