@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useField } from "../hooks/";
 import { Button, Checkbox, Form } from "semantic-ui-react";
 import loginService from "../services/login";
+import MainPage from "./MainPage"
 
 const LoginForm = props => {
   const [username, usernameReset] = useField("text");
@@ -46,7 +47,7 @@ const LoginForm = props => {
   }
   return (
     <div>
-      <h1>LOL</h1>
+      <MainPage/>
     </div>
   );
 };
